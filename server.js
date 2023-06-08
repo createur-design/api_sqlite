@@ -11,12 +11,12 @@ const sequelize = new Sequelize({
 });
 
 app.get("/", async (req, res) => {
-  // const chat = await Chat.build({
-  //   question: "comment ça va ?",
-  //   answer: "bien et toi ?",
-  // });
-  // await chat.save();
-  // console.log(chat);
+  const chat = await Chat.build({
+    question: "comment ça va ?",
+    answer: "bien et toi ?",
+  });
+  await chat.save();
+  console.log(chat);
   const allChats = await Chat.findAll();
   console.log(allChats);
   res.json({ message: "Hello Wordl!", data: allChats });
